@@ -28,6 +28,7 @@ This repository collects public detection rules I have authored or contributed t
 
 - [Claude Conversation Enders](nova/claude_conversation_enders.nov)
 - [Claude Refusal Magic String](nova/claude_magic_string.nov)
+- [Honeypot Rules](nova/honeypot.nov)
 - [Inject Dynamic Context](nova/inject_dynamic_context.nov)
 - [Skill Rules](nova/skill_rules.nov)
 

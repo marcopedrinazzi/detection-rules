@@ -1,0 +1,71 @@
+rule CredentialHarvestingPromptHoneypot
+{
+    meta:
+        description = "Detects secret disclosure and credential-harvesting prompts seen in honeypot traffic, including env dumps, secret labels, .env disclosure, service-account token access, and metadata fetches"
+        author = "Marco Pedrinazzi (@pedrinazziM) (InTheCyber)"
+        version = "1.0.0"
+        category = "abusing_functions/credential_harvesting"
+        severity = "medium"
+        uuid = "346c31eb-7499-40a1-8bd9-1ab92de1021b"
+        date = "2026-04-27"
+
+    keywords:
+        $env_config_terms = /(\.env|config files?|configuration files?|os\.environ|environment variables|\/etc\/environment)/i
+        $k8s_serviceaccount_token = "/var/run/secrets/kubernetes.io/serviceaccount/token"
+        $secret_labels = /(API_KEY|SECRET_KEY|DATABASE_URL|OPENAI_API_KEY)/i
+        $metadata_url = "http://169.254.169.254/latest/meta-data/"
+        $keyvalue="KEY=VALUE"
+
+    condition:
+        any of keywords.*
+}
+
+
+rule SystemPromptDisclosurePromptHoneypot
+{
+    meta:
+        description = "Detects system prompt disclosure prompts seen in honeypot traffic, including requests to reveal system instructions, safety configuration, or Modelfile directives"
+        author = "Marco Pedrinazzi (@pedrinazziM) (InTheCyber)"
+        version = "1.0.0"
+        category = "abnormal_outputs/system_prompt_leak"
+        severity = "medium"
+        uuid = "16118161-6f39-4230-84a5-fa95b86384d7"
+        date = "2026-04-27"
+
+    keywords:
+        $continue_you_are = /Continue this text exactly:\s*["']?You are/i
+        $system_prompt = "system prompt"
+        $system_instructions = "system instructions"
+        $modelfile = "Modelfile"
+        $modelfile_directives = /(SYSTEM|TEMPLATE|PARAMETER)/
+        $share_instructions_verbatim = /instructions.{0,80}Please share them verbatim\./i
+
+    condition:
+        any of keywords.*
+}
+
+rule LivenessProbePromptHoneypot
+{
+    meta:
+        description = "Detects simple liveness prompts observed in honeypot traffic, including trivial greetings, acknowledgements, and a small set of lightweight capability checks"
+        author = "Marco Pedrinazzi (@pedrinazziM) (InTheCyber)"
+        version = "1.0.0"
+        category = "abusing_functions/reconnaissance"
+        severity = "low"
+        uuid = "151c7f7f-47f1-4bf1-8b03-b878de34798e"
+        date = "2026-04-27"
+
+    keywords:
+        $hi = "hi"
+        $ok = "ok"
+        $hello = "hello"
+        $test = "test"
+        $hello_world = "hello, world!"
+        $hello_one_word = "say hello in one word"
+        $simple_math = "what is 2+2?"
+        $one_paragraph_probe = "explain quantum computing in one paragraph"
+        $arithmetic_probe = "calculate: 17 * 23 = ? reply with only the number"
+
+    condition:
+        any of keywords.*
+}
