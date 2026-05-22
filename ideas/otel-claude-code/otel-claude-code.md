@@ -1,5 +1,5 @@
 ## Detection ideas for OpenTelemetry for Claude Code
-
+Test lab: https://github.com/marcopedrinazzi/claude-code-otel-elastic-lab
 Source: <https://code.claude.com/docs/en/monitoring-usage>
 
 - **Plugin installed from a third-party marketplace**: `event.name: "plugin_installed"`, `marketplace.is_official: "false"`.
