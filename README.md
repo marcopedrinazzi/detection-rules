@@ -1,6 +1,10 @@
-# Public detection rules that I wrote
+# Public Detection Rules and Research
 
-This repository collects public detection rules I have authored or contributed to across multiple detection formats.
+This repository is my public detection engineering workspace. It includes rules I have authored or contributed to across various formats, plus research notes and detection ideas for other telemetry.
+
+## Detection ideas
+
+- [Claude Code OpenTelemetry Detection Ideas](ideas/otel-claude-code/otel-claude-code.md)
 
 ## [Sigma rules](https://github.com/SigmaHQ/sigma)
 
