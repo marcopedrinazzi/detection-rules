@@ -1,6 +1,6 @@
 ## Detection ideas for OpenTelemetry for Claude Code
-Test lab: https://github.com/marcopedrinazzi/claude-code-otel-elastic-lab
-Source: <https://code.claude.com/docs/en/monitoring-usage>
+Test lab: https://github.com/marcopedrinazzi/claude-code-otel-elastic-lab  
+Source: https://code.claude.com/docs/en/monitoring-usage
 
 - **Plugin installed from a third-party marketplace**: `event.name: "plugin_installed"`, `marketplace.is_official: "false"`.
 - **Plugin loaded**: `event.name: "plugin_loaded"`. Interesting fields: `has_hooks` whether the plugin contributes hooks, `has_mcp` whether the plugin contributes MCP servers, `skill_path_count` number of skill directories the plugin declares, `command_path_count` number of command directories the plugin declares, `agent_path_count` number of agent directories the plugin declares. Good for threat hunting and inventory of plugins loaded.
