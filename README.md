@@ -35,6 +35,7 @@ This repository is my public detection engineering workspace. It includes rules 
 - [Honeypot Rules](nova/honeypot.nov)
 - [Inject Dynamic Context](nova/inject_dynamic_context.nov)
 - [Skill Rules](nova/skill_rules.nov)
+- [Hidden Unicode](nova/hidden_unicode.nov)
 
 ## [Elastic rules](https://github.com/elastic/detection-rules)
 
