@@ -44,27 +44,141 @@ rule SystemPromptDisclosurePromptHoneypot
         any of keywords.*
 }
 
+rule WebsiteVerificationChallengeSolverPromptHoneypot
+{
+    meta:
+        description = "Detects user prompts asking the model to solve website verification, CAPTCHA, or form-field challenges with answer-only output"
+        author = "Marco Pedrinazzi (@pedrinazziM) (InTheCyber)"
+        version = "1.0.0"
+        category = "abusing_functions/crime_automation"
+        severity = "medium"
+        uuid = "d429e2b4-c8bf-4adf-a5a1-363cacf34db2"
+        date = "2026-05-29"
+
+    keywords:
+        $challenge_wrapper = "You are answering a website verification challenge to prove you are human."
+        $answer_only = "Reply with ONLY the answer, nothing else"
+        $question_marker = "Question:"
+
+    semantics:
+        $verification_solver = "Answer a human-verification or CAPTCHA challenge and return only the answer." (0.40)
+
+    condition:
+        (
+            keywords.$challenge_wrapper
+            and
+            keywords.$answer_only
+            and
+            keywords.$question_marker
+        )
+        or
+        semantics.$verification_solver
+}
+
+rule SyntheticIdentityMutationPromptHoneypot
+{
+    meta:
+        description = "Detects user prompts requesting synthetic identity mutation, realistic address and DOB drift, or face-preserving replay variants"
+        author = "Marco Pedrinazzi (@pedrinazziM) (InTheCyber)"
+        version = "1.0.0"
+        category = "abusing_functions/crime_automation"
+        severity = "medium"
+        uuid = "06b00851-9dd1-420b-808b-31e042385b17"
+        date = "2026-05-29"
+
+    keywords:
+        $synthetic_context = "IMPORTANT CONTEXT: This is for generating synthetic test data only."
+        $additional_context = "[ADDITIONAL CONTEXT]:"
+        $dob_variations = "DOB variations ATLEAST one in each category"
+        $clean_name_output = "Only provide the name variations in a clean, comma-separated format."
+
+    semantics:
+        $identity_mutation = "Generate synthetic identity variants with name variations, realistic addresses, and DOB changes." (0.45)
+
+    condition:
+        (
+            keywords.$synthetic_context
+            and
+            keywords.$additional_context
+            and
+            keywords.$dob_variations
+            and
+            keywords.$clean_name_output
+        )
+        or
+        semantics.$identity_mutation
+}
+
+rule StableDiffusionPromptEngineeringPromptHoneypot
+{
+    meta:
+        description = "Detects user prompts shaped as image-generation descriptions to be converted into prompt/negative JSON output"
+        author = "Marco Pedrinazzi (@pedrinazziM) (InTheCyber)"
+        version = "1.0.0"
+        category = "abusing_functions/crime_automation"
+        severity = "low"
+        uuid = "fca5021f-a0d0-4ffd-9ae6-71ff251f4737"
+        date = "2026-05-29"
+
+    keywords:
+        $description_field = "Description:"
+        $style_field = "Style:"
+        $reply_json = "Reply with ONLY this JSON and nothing else"
+        $prompt_negative = "{\"prompt\": \"...\", \"negative\": \"...\"}"
+
+    condition:
+        keywords.$description_field and keywords.$style_field and keywords.$reply_json and keywords.$prompt_negative
+}
+
 rule LivenessProbePromptHoneypot
 {
     meta:
-        description = "Detects simple liveness prompts observed in honeypot traffic, including trivial greetings, acknowledgements, and a small set of lightweight capability checks"
+        description = "Detects simple liveness and lightweight capability-probe prompts observed in honeypot traffic"
         author = "Marco Pedrinazzi (@pedrinazziM) (InTheCyber)"
-        version = "1.0.0"
+        version = "1.1.0"
         category = "abusing_functions/reconnaissance"
         severity = "low"
         uuid = "151c7f7f-47f1-4bf1-8b03-b878de34798e"
         date = "2026-04-27"
+        modified = "2026-05-29"
 
     keywords:
+        // Greetings and connectivity probes
         $hi = "hi"
-        $ok = "ok"
+        $hey = "hey"
         $hello = "hello"
+        $ok = "ok"
         $test = "test"
-        $hello_world = "hello, world!"
-        $hello_one_word = "say hello in one word"
-        $simple_math = "what is 2+2?"
-        $one_paragraph_probe = "explain quantum computing in one paragraph"
-        $arithmetic_probe = "calculate: 17 * 23 = ? reply with only the number"
+        $ping = "ping"
+        $pong = "pong"
+
+        // Arithmetic and tool probes
+        $arithmetic_expr = /\d+\s*(plus|minus|times|multiplied by|divided by|\+|\-|\*|\/)\s*\d+/i
+        $tool_add_numbers = "add_numbers"
+        $tool_calculator = "calculator"
+        $tool_calc = "calc"
+
+        // Coding and language prompts
+        $python = "python"
+        $go = "go"
+        $js = "js"
+        $javascript = "javascript"
+
+        // Response and formatting directives
+        $answer_or_reply_with = /\b(answer|reply)\s+with\b/i
+        $type_or_write = /\b(type|write)\b/i
+        $empty_json_object = "{}"
+
+        // Simple content and knowledge probes
+        $one_paragraph_probe = "quantum computing"
+        $translate = "translate"
+        $capital = "capital"
+        $story = "story"
+        $letters = "letters"
+        $color = "color"
+        $animal = "animal"
+        $which_llm = "Which LLM are you?"
+        $introduce = "introduce yourself"
 
     condition:
         any of keywords.*
