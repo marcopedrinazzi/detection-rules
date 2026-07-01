@@ -26,6 +26,7 @@ This repository is my public detection engineering workspace. It includes rules 
 - [OpenCanary - NMAP OS Scan](sigma/opencanary_portscan_nmap_os_scan.yml)
 - [OpenCanary - NMAP XMAS Scan](sigma/opencanary_portscan_nmap_xmas_scan.yml)
 - [OpenCanary - RDP New Connection Attempt](sigma/opencanary_rdp_connection_attempt.yml)
+- [RedTail Cryptominer User-Agent](sigma/web_malware_redtail_useragent.yml)
 - [Suspicious Email Delivered In Microsoft 365](sigma/microsoft365_suspicious_email_delivered.yml)
 - [System Language Discovery via Reg.Exe](sigma/proc_creation_win_reg_system_language_discovery.yml)
 
