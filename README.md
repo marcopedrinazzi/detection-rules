@@ -8,6 +8,7 @@ This repository is my public detection engineering workspace. It includes rules 
 
 ## [Sigma rules](https://github.com/SigmaHQ/sigma)
 
+- [New Agent Skills Installation Attempt Via Node.EXE](sigma/proc_creation_win_node_new_agent_skills_installed.yml)
 - [Azure Sign-In With Axios User Agent](sigma/azure_ad_signin_axios_user_agent.yml)
 - [FortiGate - Firewall Address Object Added](sigma/fortinet_fortigate_new_firewall_address_object.yml)
 - [FortiGate - New Administrator Account Created](sigma/fortinet_fortigate_new_admin_account_created.yml)
