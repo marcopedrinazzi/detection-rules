@@ -8,6 +8,14 @@ This repository is my public detection engineering workspace. It includes rules 
 
 ## [Sigma rules](https://github.com/SigmaHQ/sigma)
 
+**Pending review:**
+- [DinDoor Backdoor Deno Remote JavaScript Execution From PowerShell](https://github.com/SigmaHQ/sigma/pull/6083)
+- [AWS SES Account Availability Discovery Via Long-Lived Access Key](https://github.com/SigmaHQ/sigma/pull/6043)
+- [RondoDox Botnet Activity](https://github.com/SigmaHQ/sigma/pull/6020)
+- [AWS Bedrock Model Recon Activity](https://github.com/SigmaHQ/sigma/pull/5903)
+- [Uncommon AWS Bedrock API Calls From Long Lived Access Keys](https://github.com/SigmaHQ/sigma/pull/5903)
+
+**Merged**:
 - [New Agent Skills Installation Attempt Via Node.EXE](sigma/proc_creation_win_node_new_agent_skills_installed.yml)
 - [Azure Sign-In With Axios User Agent](sigma/azure_ad_signin_axios_user_agent.yml)
 - [FortiGate - Firewall Address Object Added](sigma/fortinet_fortigate_new_firewall_address_object.yml)
@@ -41,5 +49,12 @@ This repository is my public detection engineering workspace. It includes rules 
 
 ## [Elastic rules](https://github.com/elastic/detection-rules)
 
+**Pending review**
+- [New LLM Jacking Rules](https://github.com/elastic/detection-rules/issues/6154)
+- [AWS Bedrock Model Invocation Logging Deleted Configuration](https://github.com/elastic/detection-rules/issues/6160)
+- [AWS Bedrock Guardrail Configuration Changed](https://github.com/elastic/detection-rules/issues/6159)
+- [AWS security agent detection](https://github.com/elastic/detection-rules/issues/6155)
+
+**Merged**:
 - [M365 Exchange Inbox Forwarding Rule Created](elastic/collection_exchange_new_inbox_rule.toml)
 - [M365 Exchange Inbox Phishing Evasion Rule Created](elastic/defense_evasion_exchange_new_inbox_rule_delete_or_move.toml)
