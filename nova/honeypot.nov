@@ -1,3 +1,23 @@
+rule SSHCredentialReconPromptHoneypot
+{
+    meta:
+        description = "Detects credential-recon prompts observed in honeypot traffic"
+        author = "Marco Pedrinazzi (@pedrinazziM) (InTheCyber)"
+        version = "1.0.0"
+        category = "abusing_functions/reconnaissance"
+        severity = "medium"
+        uuid = "186f9f26-9877-4986-845b-18accb28a0f9"
+        date = "2026-07-06"
+
+    keywords:
+        $password_wordlist_generator = "You are a password wordlist generator"
+        $security_researcher = "You are a security researcher"
+        $ssh = "SSH credential"
+
+    condition:
+        (keywords.$security_researcher and keywords.$ssh) or keywords.$password_wordlist_generator
+}
+
 rule CredentialHarvestingPromptHoneypot
 {
     meta:
@@ -135,14 +155,17 @@ rule LivenessProbePromptHoneypot
     meta:
         description = "Detects simple liveness and lightweight capability-probe prompts observed in honeypot traffic"
         author = "Marco Pedrinazzi (@pedrinazziM) (InTheCyber)"
-        version = "1.1.0"
+        version = "1.2.0"
         category = "abusing_functions/reconnaissance"
         severity = "low"
         uuid = "151c7f7f-47f1-4bf1-8b03-b878de34798e"
         date = "2026-04-27"
-        modified = "2026-05-29"
+        modified = "2026-07-06"
 
     keywords:
+        //JSON output validation
+        $json_output="drainzy"
+        
         // Greetings and connectivity probes
         $hi = "hi"
         $hey = "hey"
