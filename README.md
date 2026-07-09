@@ -51,8 +51,6 @@ This repository is my public detection engineering workspace. It includes rules 
 
 **Pending review**
 - [New LLM Jacking Rules](https://github.com/elastic/detection-rules/issues/6154)
-- [AWS Bedrock Model Invocation Logging Deleted Configuration](https://github.com/elastic/detection-rules/issues/6160)
-- [AWS Bedrock Guardrail Configuration Changed](https://github.com/elastic/detection-rules/issues/6159)
 - [AWS security agent detection](https://github.com/elastic/detection-rules/issues/6155)
 
 **Merged**:
