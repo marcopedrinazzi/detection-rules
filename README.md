@@ -9,6 +9,7 @@ This repository is my public detection engineering workspace. It includes rules 
 ## [Sigma rules](https://github.com/SigmaHQ/sigma)
 
 **Pending review:**
+- [AWS Bedrock Guardrail Updated or Deleted](https://github.com/SigmaHQ/sigma/pull/6123)
 - [DinDoor Backdoor Deno Remote JavaScript Execution From PowerShell](https://github.com/SigmaHQ/sigma/pull/6083)
 - [AWS SES Account Availability Discovery Via Long-Lived Access Key](https://github.com/SigmaHQ/sigma/pull/6043)
 - [RondoDox Botnet Activity](https://github.com/SigmaHQ/sigma/pull/6020)
