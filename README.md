@@ -9,7 +9,6 @@ This repository is my public detection engineering workspace. It includes rules 
 ## [Sigma rules](https://github.com/SigmaHQ/sigma)
 
 **Pending review:**
-- [AWS Bedrock Guardrail Updated or Deleted](https://github.com/SigmaHQ/sigma/pull/6123)
 - [DinDoor Backdoor Deno Remote JavaScript Execution From PowerShell](https://github.com/SigmaHQ/sigma/pull/6083)
 - [AWS SES Account Availability Discovery Via Long-Lived Access Key](https://github.com/SigmaHQ/sigma/pull/6043)
 - [RondoDox Botnet Activity](https://github.com/SigmaHQ/sigma/pull/6020)
@@ -17,6 +16,8 @@ This repository is my public detection engineering workspace. It includes rules 
 - [Uncommon AWS Bedrock API Calls From Long Lived Access Keys](https://github.com/SigmaHQ/sigma/pull/5903)
 
 **Merged**:
+- [AWS Bedrock Guardrail Deleted](sigma/aws_cloudtrail_bedrock_guardrail_deleted.yml)
+- [AWS Bedrock Guardrail Updated](sigma/aws_cloudtrail_bedrock_guardrail_updated.yml)
 - [New Agent Skills Installation Attempt Via Node.EXE](sigma/proc_creation_win_node_new_agent_skills_installed.yml)
 - [Azure Sign-In With Axios User Agent](sigma/azure_ad_signin_axios_user_agent.yml)
 - [FortiGate - Firewall Address Object Added](sigma/fortinet_fortigate_new_firewall_address_object.yml)
