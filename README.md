@@ -50,6 +50,7 @@ This repository is my public detection engineering workspace. It includes rules 
 - [Hidden Unicode](nova/hidden_unicode.nov)
 - [Code Switching Jailbreak](nova/CodeSwitchingJailbreak.nov)
 - [Delimiter Termination Probe](nova/delimiter_termination_probe.nov)
+- [CounterfeitPolicySteering](nova/nova/counterfeit_policy_steering.nov)
 
 ## [Elastic rules](https://github.com/elastic/detection-rules)
 
