@@ -48,6 +48,8 @@ This repository is my public detection engineering workspace. It includes rules 
 - [Inject Dynamic Context](nova/inject_dynamic_context.nov)
 - [Skill Rules](nova/skill_rules.nov)
 - [Hidden Unicode](nova/hidden_unicode.nov)
+- [Code Switching Jailbreak](nova/CodeSwitchingJailbreak.nov)
+- [Delimiter Termination Probe](nova/delimiter_termination_probe.nov)
 
 ## [Elastic rules](https://github.com/elastic/detection-rules)
 
