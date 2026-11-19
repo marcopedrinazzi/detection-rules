@@ -8,6 +8,7 @@ rule XalgorixToolCallReminders
         severity = "high"
         uuid = "8121b42e-fd06-484f-99ab-1dcfbc6ecee1"
         date = "2026-11-19"
+        reference = "https://posts.inthecyber.com/tales-of-an-ollama-honeypot-part-7-llmjacking-to-fuel-autonomous-offensive-operations-with-190dee95379d"
 
     keywords:
         $soft_target = "You MUST use tools to interact with the target."
