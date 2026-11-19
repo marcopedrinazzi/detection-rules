@@ -42,10 +42,7 @@ This repository is my public detection engineering workspace. It includes rules 
 
 ## [Nova rules](https://github.com/Nova-Hunting/nova-rules)
 
-**Pending review:**
-- [Ghost Jailbreak](https://github.com/Nova-Hunting/nova-rules/pull/12) 
-
-
+- [GHOST Jailbreak](nova/ghost_jailbreak.nov) 
 - [Claude Conversation Enders](nova/claude_conversation_enders.nov)
 - [Claude Refusal Magic String](nova/claude_magic_string.nov)
 - [Honeypot Rules](nova/honeypot.nov)
