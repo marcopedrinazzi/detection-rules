@@ -42,6 +42,8 @@ This repository is my public detection engineering workspace. It includes rules 
 
 ## [Nova rules](https://github.com/Nova-Hunting/nova-rules)
 
+- [Xalgorix Tool Call Reminders](nova/xalgorix_tool_call_reminders.nov)
+- [Xalgorix Primary Mission](nova/xalgorix_primary_mission.nov)
 - [GHOST Jailbreak](nova/ghost_jailbreak.nov) 
 - [Claude Conversation Enders](nova/claude_conversation_enders.nov)
 - [Claude Refusal Magic String](nova/claude_magic_string.nov)
