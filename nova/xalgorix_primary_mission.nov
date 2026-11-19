@@ -8,6 +8,7 @@ rule XalgorixPrimaryMission
         severity = "high"
         uuid = "e36a723c-de16-400d-bea6-69747af70ec8"
         date = "2026-11-19"
+        reference = "https://posts.inthecyber.com/tales-of-an-ollama-honeypot-part-7-llmjacking-to-fuel-autonomous-offensive-operations-with-190dee95379d"
 
     keywords:
         $primary_mission = "Your PRIMARY MISSION:"
