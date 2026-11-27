@@ -1,0 +1,45 @@
+title: Agentic Offensive Framework - Xalgorix
+id: 42c558cf-015b-488a-ba49-c726ee7e029d
+status: experimental
+description: |
+  Web dashboard for monitoring scans and reviewing findings and reports in
+  Xalgorix, an AI-driven penetration testing tool. Matches the full HTML
+  title "Xalgorix — Security Scanner" set in webui/index.html.
+references:
+  - https://github.com/xalgorix/xalgorix/blob/2ffe90cb33a770e88658ea18498c65a50b8a5928/webui/index.html#L9
+  - https://github.com/xalgorix/xalgorix/blob/2ffe90cb33a770e88658ea18498c65a50b8a5928/README.md#L248
+author: Marco Pedrinazzi (@pedrinazziM)
+date: 2026-11-26
+tags:
+  - attack.resource_development
+  - attack.t1588.002
+  - category.offensive-tool
+  - aof
+target:
+  protocol: http
+  tls: auto
+  ports: [9137]
+detection:
+  selection_title:
+    http.title: 'Xalgorix — Security Scanner'
+  condition: selection_title
+identifies:
+  product: Xalgorix
+  family: xalgorix
+  category: offensive-tool
+confidence: high
+falsepositives:
+  - Authorised deployments by red teams (the tooling is dual-use)
+tests:
+  - name: Xalgorix dashboard
+    expect: match
+    response:
+      http.title: 'Xalgorix — Security Scanner'
+  - name: Generic scanner title
+    expect: no_match
+    response:
+      http.title: 'Security Scanner'
+  - name: Other Xalgorix page title
+    expect: no_match
+    response:
+      http.title: 'Xalgorix — Access Terminal'

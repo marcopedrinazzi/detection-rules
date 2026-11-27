@@ -2,9 +2,11 @@
 
 This repository is my public detection engineering workspace. It includes rules I have authored or contributed to across various formats, plus research notes and detection ideas for other telemetry.
 
-## Detection ideas
+## [Athar rules](https://github.com/Athar-HQ/Athar)
+- [Agentic Offensive Framework - LuaN1aoAgent](athar/aof_luan1aoagent_nov26.yml)
+- [Agentic Offensive Framework - PentestCode](athar/aof_pentestcode_nov26.yml)
+- [Agentic Offensive Framework - Xalgorix](athar/aof_xalgorix_nov26.yml)
 
-- [Claude Code OpenTelemetry Detection Ideas](ideas/otel-claude-code/otel-claude-code.md)
 
 ## [Sigma rules](https://github.com/SigmaHQ/sigma)
 
@@ -64,3 +66,7 @@ This repository is my public detection engineering workspace. It includes rules 
 **Merged**:
 - [M365 Exchange Inbox Forwarding Rule Created](elastic/collection_exchange_new_inbox_rule.toml)
 - [M365 Exchange Inbox Phishing Evasion Rule Created](elastic/defense_evasion_exchange_new_inbox_rule_delete_or_move.toml)
+
+## Detection ideas
+
+- [Claude Code OpenTelemetry Detection Ideas](ideas/otel-claude-code/otel-claude-code.md)

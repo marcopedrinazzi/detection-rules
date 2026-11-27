@@ -1,0 +1,45 @@
+title: Agentic Offensive Framework - LuaN1aoAgent
+id: a30cab22-c0da-442f-93c5-70be0861f034
+status: experimental
+description: |
+  Web workbench for reviewing run activity, task graphs, and artifacts in
+  LuaN1aoAgent, an autonomous penetration testing agent. Matches the full
+  HTML title "鸾鸟渗透智能体 · Agent Workbench" set in web/index.html.
+references:
+  - https://github.com/SanMuzZzZz/LuaN1aoAgent/blob/19403774c802cea07c389af56a9310eab190da7a/web/index.html#L7
+  - https://github.com/SanMuzZzZz/LuaN1aoAgent/blob/19403774c802cea07c389af56a9310eab190da7a/README.md#web-workbench
+author: Marco Pedrinazzi (@pedrinazziM)
+date: 2026-11-26
+tags:
+  - attack.resource_development
+  - attack.t1588.002
+  - category.offensive-tool
+  - aof
+target:
+  protocol: http
+  tls: auto
+  ports: [8787]
+detection:
+  selection_title:
+    http.title: '鸾鸟渗透智能体 · Agent Workbench'
+  condition: selection_title
+identifies:
+  product: LuaN1aoAgent
+  family: luan1aoagent
+  category: offensive-tool
+confidence: high
+falsepositives:
+  - Authorised deployments by red teams (the tooling is dual-use)
+tests:
+  - name: LuaN1aoAgent workbench
+    expect: match
+    response:
+      http.title: '鸾鸟渗透智能体 · Agent Workbench'
+  - name: Generic agent workbench
+    expect: no_match
+    response:
+      http.title: 'Agent Workbench'
+  - name: Other workbench with the same suffix
+    expect: no_match
+    response:
+      http.title: '文献精读工作台 · Agent Workbench'
